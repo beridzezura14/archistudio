@@ -50,7 +50,7 @@ const Blog = () => {
             </h2>
           </div>
           
-          <Link href="/blog" className="group flex items-center gap-4 border-b border-black pb-2 mb-2 transition-all">
+          <Link href="/pages/blogs" className="group flex items-center gap-4 border-b border-black pb-2 mb-2 transition-all">
             <span className="text-[10px] uppercase tracking-widest font-bold">ყველა პოსტი</span>
             <div className="w-2 h-2 bg-black rounded-full group-hover:scale-150 transition-transform" />
           </Link>

@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
+import Link from "next/link";
+
 
 const categories = ["ყველა", "საცხოვრებელი", "კომერციული", "ინტერიერი"];
 
@@ -126,15 +128,17 @@ const Projects = () => {
         </motion.div>
 
         {/* View All Button */}
-        <div className="mt-32 flex justify-center">
-          <motion.button 
-            whileHover={{ letterSpacing: "0.6em" }}
-            className="group  cursor-pointer relative px-16 py-6 overflow-hidden border border-zinc-200 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-500"
-          >
-            <span className="relative z-10 group-hover:text-white transition-colors duration-500">ყველა პროექტის ნახვა</span>
-            <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
-          </motion.button>
-        </div>
+        <Link href="/pages/projects">
+          <div className="mt-32 flex justify-center">
+            <motion.button 
+              whileHover={{ letterSpacing: "0.6em" }}
+              className="group  cursor-pointer relative px-16 py-6 overflow-hidden border border-zinc-200 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-500"
+            >
+              <span className="relative z-10 group-hover:text-white transition-colors duration-500">ყველა პროექტის ნახვა</span>
+              <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+            </motion.button>
+          </div>
+        </Link>
       </div>
     </section>
   );
