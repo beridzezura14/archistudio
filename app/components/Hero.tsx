@@ -86,7 +86,7 @@ const Hero = () => {
     <motion.section
       animate={{ backgroundColor: currentBackground }}
       transition={{ duration: 1.2 }}
-      className="relative flex min-h-[58rem] w-full items-start overflow-hidden md:h-screen md:min-h-screen md:items-center"
+      className="relative flex min-h-[46rem] w-full items-start overflow-hidden sm:min-h-[50rem] md:h-screen md:min-h-screen md:items-center"
     >
       <div
         className={`absolute inset-0 transition-colors duration-1000 ${
@@ -110,7 +110,7 @@ const Hero = () => {
         </AnimatePresence>
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-16 pt-28 sm:pb-20 sm:pt-32 md:grid-cols-12 md:gap-8 md:pb-0 md:pt-20">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 pb-8 pt-28 sm:gap-10 sm:pb-12 sm:pt-32 md:grid-cols-12 md:gap-8 md:pb-0 md:pt-20">
         <div className="z-20 md:col-span-5">
           <AnimatePresence mode="wait">
             <motion.div
@@ -164,7 +164,7 @@ const Hero = () => {
           </AnimatePresence>
         </div>
 
-        <div className="relative h-[34vh] min-h-[18rem] w-full shadow-2xl sm:h-[40vh] md:col-span-7 md:h-[75vh]">
+        <div className="relative mb-8 h-[28vh] min-h-[15rem] w-full shadow-2xl sm:mb-10 sm:h-[34vh] sm:min-h-[18rem] md:col-span-7 md:mb-0 md:h-[75vh]">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.img}
@@ -184,7 +184,7 @@ const Hero = () => {
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute -bottom-6 right-0 flex items-center gap-3 sm:-bottom-8">
+          <div className="absolute -bottom-9 right-0 flex items-center gap-3">
             {slides.map((_, i) => (
               <div key={i} onClick={() => setIndex(i)} className="cursor-pointer py-4">
                 <div
