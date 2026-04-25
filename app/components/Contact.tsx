@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const Contact = () => {
@@ -126,12 +126,12 @@ const Contact = () => {
               </motion.button>
             </form>
 
-            <div className="mt-16 flex gap-12 border-t border-zinc-800/50 pt-10">
+            <div className="mt-16 flex flex-wrap gap-x-6 gap-y-4 border-t border-zinc-800/50 pt-10 sm:gap-x-12">
               {["Instagram", "Facebook", "Behance"].map((social) => (
                 <a 
                   key={social} 
                   href="#" 
-                  className="text-[10px] uppercase tracking-[0.4em] font-bold text-zinc-500 hover:text-white transition-colors"
+                  className="block max-w-full break-words text-[10px] uppercase tracking-[0.18em] sm:tracking-[0.4em] font-bold text-zinc-500 hover:text-white transition-colors"
                 >
                   {social}
                 </a>

@@ -60,16 +60,16 @@ const Footer = () => {
             </ul>
           </div>
 
-          <div className="space-y-6">
+          <div className="min-w-0 space-y-6">
             <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-700">
               Social
             </h4>
-            <ul className="space-y-4 text-sm font-medium uppercase tracking-widest">
+            <ul className="min-w-0 space-y-3 text-sm font-medium uppercase tracking-[0.22em] sm:tracking-widest">
               {["Instagram", "Facebook", "Behance", "LinkedIn"].map((item) => (
                 <li key={item}>
                   <a
                     href="#"
-                    className="italic transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
+                    className="block max-w-full break-words italic transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
                   >
                     {item}
                   </a>

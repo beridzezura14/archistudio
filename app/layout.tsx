@@ -21,10 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ka">
-      <body className="bg-white text-black antialiased dark:bg-[#050505] dark:text-zinc-100">
+      <body className="min-h-screen overflow-x-hidden bg-white text-black antialiased dark:bg-[#050505] dark:text-zinc-100">
         <ThemeProvider>
           <Header />
-          {children}
+          <main className="relative z-10 bg-white dark:bg-[#050505]">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
       </body>

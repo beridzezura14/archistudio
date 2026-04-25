@@ -86,7 +86,7 @@ const Hero = () => {
     <motion.section
       animate={{ backgroundColor: currentBackground }}
       transition={{ duration: 1.2 }}
-      className="relative flex h-screen w-full items-center overflow-hidden"
+      className="relative flex min-h-[58rem] w-full items-start overflow-hidden md:h-screen md:min-h-screen md:items-center"
     >
       <div
         className={`absolute inset-0 transition-colors duration-1000 ${
@@ -110,7 +110,7 @@ const Hero = () => {
         </AnimatePresence>
       </div>
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-8 px-4 pt-20 md:grid-cols-12">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-10 px-4 pb-16 pt-28 sm:pb-20 sm:pt-32 md:grid-cols-12 md:gap-8 md:pb-0 md:pt-20">
         <div className="z-20 md:col-span-5">
           <AnimatePresence mode="wait">
             <motion.div
@@ -129,10 +129,10 @@ const Hero = () => {
 
               <h1
                 style={{ color: currentAccent }}
-                className="mb-6 text-5xl leading-tight transition-colors duration-1000 md:text-7xl"
+                className="mb-6 text-4xl leading-tight transition-colors duration-1000 sm:text-5xl md:text-7xl"
               >
                 {current.headlineTop} <br />
-                <span className="block text-6xl font-bold tracking-tighter md:text-8xl">
+                <span className="block text-5xl font-bold tracking-tighter sm:text-6xl md:text-8xl">
                   {current.headlineBottom}
                 </span>
               </h1>
@@ -164,7 +164,7 @@ const Hero = () => {
           </AnimatePresence>
         </div>
 
-        <div className="relative h-[50vh] w-full shadow-2xl md:col-span-7 md:h-[75vh]">
+        <div className="relative h-[34vh] min-h-[18rem] w-full shadow-2xl sm:h-[40vh] md:col-span-7 md:h-[75vh]">
           <AnimatePresence mode="wait">
             <motion.div
               key={current.img}
@@ -184,7 +184,7 @@ const Hero = () => {
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute -bottom-8 right-0 flex items-center gap-3">
+          <div className="absolute -bottom-6 right-0 flex items-center gap-3 sm:-bottom-8">
             {slides.map((_, i) => (
               <div key={i} onClick={() => setIndex(i)} className="cursor-pointer py-4">
                 <div
