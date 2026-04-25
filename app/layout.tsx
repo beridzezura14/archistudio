@@ -5,8 +5,12 @@ import "./globals.css";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ARQ BUILD",
+  title: "სამშენებლო კომპანია | ARCHI STUDIO",
   description: "Construction company landing page with responsive hero section.",
+  icons: {
+    icon: "/window.png", // ძირითადი ფაილი (ჩვეულებრივ .ico ფორმატის)
+    
+  },
 };
 
 export default function RootLayout({
