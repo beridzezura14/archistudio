@@ -1,6 +1,7 @@
 
 import Footer from "./components/Footer";
 import Header from "./components/Header";
+import { ThemeProvider } from "./components/ThemeProvider";
 import "./globals.css";
 import type { Metadata } from "next";
 
@@ -20,11 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ka">
-      <body>
-        <Header />
-        {children}
-        <Footer />
-        </body>
+      <body className="bg-white text-black antialiased dark:bg-[#050505] dark:text-zinc-100">
+        <ThemeProvider>
+          <Header />
+          {children}
+          <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

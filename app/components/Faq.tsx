@@ -68,24 +68,24 @@ const FaqItem = ({ faq, isOpen, toggle, index }: FaqItemProps) => {
       whileInView="visible"
       viewport={{ once: true }}
       custom={index}
-      className={`border-b border-zinc-100 transition-colors duration-500 ${isOpen ? 'bg-zinc-50/50' : ''}`}
+      className={`border-b border-zinc-100 dark:border-zinc-800 transition-colors duration-500 ${isOpen ? 'bg-zinc-50/50 dark:bg-zinc-900/40' : ''}`}
     >
       <button
         onClick={toggle}
         className="w-full py-12 flex items-start justify-between text-left group"
       >
         <div className="flex gap-8 md:gap-16">
-          <span className={`text-[10px] font-bold mt-1 transition-colors duration-500 ${isOpen ? 'text-black' : 'text-zinc-300'}`}>
+          <span className={`text-[10px] font-bold mt-1 transition-colors duration-500 ${isOpen ? 'text-black dark:text-white' : 'text-zinc-300 dark:text-zinc-600'}`}>
             {faq.id}
           </span>
-          <h3 className={`text-xl md:text-4xl font-light tracking-tighter transition-all duration-500 ${isOpen ? 'text-black italic pl-4' : 'text-zinc-400 group-hover:text-black'}`}>
+          <h3 className={`text-xl md:text-4xl font-light tracking-tighter transition-all duration-500 ${isOpen ? 'text-black italic pl-4 dark:text-white' : 'text-zinc-400 group-hover:text-black dark:text-zinc-500 dark:group-hover:text-white'}`}>
             {faq.question}
           </h3>
         </div>
         
         <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
-          className={`mt-1 transition-colors duration-500 ${isOpen ? 'text-black' : 'text-zinc-300'}`}
+          className={`mt-1 transition-colors duration-500 ${isOpen ? 'text-black dark:text-white' : 'text-zinc-300 dark:text-zinc-600'}`}
         >
           <Plus className="w-6 h-6 md:w-10 md:h-10 stroke-[1px]" />
         </motion.div>
@@ -101,7 +101,7 @@ const FaqItem = ({ faq, isOpen, toggle, index }: FaqItemProps) => {
             className="overflow-hidden"
           >
             <div className="pb-16 pl-16 md:pl-40 max-w-4xl">
-              <p className="text-zinc-500 text-lg md:text-xl leading-relaxed font-light">
+              <p className="text-zinc-500 dark:text-zinc-400 text-lg md:text-xl leading-relaxed font-light">
                 {faq.answer}
               </p>
             </div>
@@ -116,7 +116,7 @@ const Faq = () => {
   const [openId, setOpenId] = useState<string | null>(null);
 
   return (
-    <section className="py-40 bg-white text-black overflow-hidden">
+    <section className="py-40 bg-white dark:bg-[#0f0f0f] text-black dark:text-zinc-100 overflow-hidden transition-colors">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         <motion.div 
@@ -126,7 +126,7 @@ const Faq = () => {
           transition={{ duration: 1 }}
           className="mb-32"
         >
-          <span className="text-[10px] uppercase tracking-[0.8em] text-zinc-400 block mb-6 font-bold">
+          <span className="text-[10px] uppercase tracking-[0.8em] text-zinc-400 dark:text-zinc-500 block mb-6 font-bold">
             Inquiry / FAQ
           </span>
           <h2 className="text-6xl md:text-8xl font-extralight tracking-tighter leading-[0.85] uppercase">
@@ -135,7 +135,7 @@ const Faq = () => {
           </h2>
         </motion.div>
 
-        <div className="border-t border-zinc-100">
+        <div className="border-t border-zinc-100 dark:border-zinc-800">
           {faqs.map((faq, index) => (
             <FaqItem
               key={faq.id}
@@ -153,10 +153,10 @@ const Faq = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.5, duration: 0.8 }}
-          className="mt-20 flex flex-col md:flex-row items-center md:items-end justify-between border-t border-zinc-100 pt-12 gap-10 md:gap-0"
+          className="mt-20 flex flex-col md:flex-row items-center md:items-end justify-between border-t border-zinc-100 dark:border-zinc-800 pt-12 gap-10 md:gap-0"
         >
           <div className="max-w-xs text-center md:text-left">
-            <p className="text-[10px] text-zinc-400 uppercase tracking-widest leading-relaxed">
+            <p className="text-[10px] text-zinc-400 dark:text-zinc-500 uppercase tracking-widest leading-relaxed">
               ვერ იპოვეთ პასუხი? <br />
               ჩვენი გუნდი მზად არის კონსულტაციისთვის.
             </p>
@@ -166,12 +166,12 @@ const Faq = () => {
             <Link href="/contact" className="w-full md:w-auto">
               <motion.button 
                 whileHover={{ letterSpacing: "0.6em" }}
-                className="group cursor-pointer relative w-full md:w-auto px-16 py-6 overflow-hidden border border-zinc-200 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-500"
+                className="group cursor-pointer relative w-full md:w-auto px-16 py-6 overflow-hidden border border-zinc-200 dark:border-zinc-700 text-[10px] uppercase tracking-[0.4em] font-bold transition-all duration-500"
               >
                 <span className="relative z-10 group-hover:text-white transition-colors duration-500">
                   კონტაქტი
                 </span>
-                <div className="absolute inset-0 bg-black translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
+                <div className="absolute inset-0 bg-black dark:bg-zinc-100 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out" />
               </motion.button>
             </Link>
           </div>

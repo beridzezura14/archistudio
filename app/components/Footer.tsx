@@ -7,80 +7,111 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-[#050505] text-white pt-32 pb-10 border-t border-zinc-900 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 pb-10 md:pb-20">
-          
-          {/* Logo & Manifesto */}
-          <div className="lg:col-span-2 space-y-8">
-            <Link href="/" className="text-3xl font-black tracking-tighter italic">
+    <footer className="overflow-hidden border-t border-zinc-200 bg-[#f7f7f5] pb-10 pt-32 text-black transition-colors dark:border-zinc-900 dark:bg-[#050505] dark:text-white">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="grid grid-cols-1 gap-16 pb-10 md:grid-cols-2 md:pb-20 lg:grid-cols-4">
+          <div className="space-y-8 lg:col-span-2">
+            <Link href="/" className="text-3xl font-black italic tracking-tighter">
               ARCHI<span className="text-zinc-500">STUDIO</span>
             </Link>
-            <p className="max-w-sm text-zinc-500 text-lg font-light leading-relaxed">
-              ჩვენ ვქმნით არქიტექტურას, რომელიც პასუხობს გარემოს, ფუნქციას და მომავლის გამოწვევებს.
+            <p className="max-w-sm text-lg font-light leading-relaxed text-zinc-500">
+              ჩვენ ვქმნით არქიტექტურას, რომელიც პასუხობს გარემოს, ფუნქციას და
+              მომავლის გამოწვევებს.
             </p>
           </div>
 
-          {/* Quick Links */}
           <div className="space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-zinc-700 font-black">Navigation</h4>
-            <ul className="space-y-4 text-sm uppercase tracking-widest font-medium">
-              <li><Link href="/projects" className="hover:text-zinc-400 transition-colors">პროექტები</Link></li>
-              <li><Link href="/about" className="hover:text-zinc-400 transition-colors">ჩვენს შესახებ</Link></li>
-              <li><Link href="/blog" className="hover:text-zinc-400 transition-colors">ბლოგი</Link></li>
-              <li><Link href="/contact" className="hover:text-zinc-400 transition-colors">კონტაქტი</Link></li>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-700">
+              Navigation
+            </h4>
+            <ul className="space-y-4 text-sm font-medium uppercase tracking-widest">
+              <li>
+                <Link
+                  href="/projects"
+                  className="transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
+                >
+                  პროექტები
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/about"
+                  className="transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
+                >
+                  ჩვენს შესახებ
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  className="transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
+                >
+                  ბლოგი
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/contact"
+                  className="transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
+                >
+                  კონტაქტი
+                </Link>
+              </li>
             </ul>
           </div>
 
-          {/* Social & Contact */}
           <div className="space-y-6">
-            <h4 className="text-[10px] uppercase tracking-[0.4em] text-zinc-700 font-black">Social</h4>
-            <ul className="space-y-4 text-sm uppercase tracking-widest font-medium">
-              <li><a href="#" className="hover:text-zinc-400 transition-colors italic">Instagram</a></li>
-              <li><a href="#" className="hover:text-zinc-400 transition-colors italic">Facebook</a></li>
-              <li><a href="#" className="hover:text-zinc-400 transition-colors italic">Behance</a></li>
-              <li><a href="#" className="hover:text-zinc-400 transition-colors italic">LinkedIn</a></li>
+            <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-zinc-700">
+              Social
+            </h4>
+            <ul className="space-y-4 text-sm font-medium uppercase tracking-widest">
+              {["Instagram", "Facebook", "Behance", "LinkedIn"].map((item) => (
+                <li key={item}>
+                  <a
+                    href="#"
+                    className="italic transition-colors hover:text-zinc-500 dark:hover:text-zinc-400"
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
 
-        {/* Big Call to Action / Big Text */}
-        <div className="relative md:pb-20  border-y border-zinc-900/50 group">
+        <div className="group relative border-y border-zinc-200 md:pb-20 dark:border-zinc-900/50">
           <Link href="pages/contact" className="block overflow-hidden">
-            <motion.h2 
+            <motion.h2
               whileHover={{ skewX: -10, x: 20 }}
               transition={{ duration: 0.5 }}
-              className="text-[12vw] md:text-[7vw] font-black tracking-tighter uppercase italic text-center hover:text-zinc-200 transition-colors"
+              className="text-center text-[12vw] font-black uppercase italic tracking-tighter transition-colors hover:text-zinc-500 md:text-[7vw] dark:hover:text-zinc-200"
             >
               დავიწყოთ?
             </motion.h2>
           </Link>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <div className="flex gap-8 text-[10px] uppercase tracking-widest text-zinc-600 font-bold">
+        <div className="mt-10 flex flex-col items-center justify-between gap-6 md:flex-row">
+          <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
             <span>© {currentYear} ARCHI STUDIO</span>
             <span>All rights reserved</span>
           </div>
 
-          <Link  href="/pages/terms" >
-            <div className="flex gap-8 text-[10px] uppercase tracking-widest text-zinc-600 font-bold">
-              <p className="hover:text-white transition-colors">Privacy Policy & Terms of Service</p>
-              {/* <p className="hover:text-white transition-colors"></p> */}
+          <Link href="/pages/terms">
+            <div className="flex gap-8 text-[10px] font-bold uppercase tracking-widest text-zinc-600">
+              <p className="transition-colors hover:text-black dark:hover:text-white">
+                Privacy Policy & Terms of Service
+              </p>
             </div>
           </Link>
-          
-          <motion.button 
-            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-[12px] cursor-pointer uppercase tracking-widest font-black italic border-b border-white pb-1 hover:text-zinc-400 hover:border-zinc-400 transition-all"
+
+          <motion.button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="cursor-pointer border-b border-black pb-1 text-[12px] font-black uppercase tracking-widest italic transition-all hover:border-zinc-500 hover:text-zinc-500 dark:border-white dark:hover:border-zinc-400 dark:hover:text-zinc-400"
           >
             ზევით ↑
           </motion.button>
         </div>
-
       </div>
     </footer>
   );

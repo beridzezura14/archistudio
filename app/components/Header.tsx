@@ -1,23 +1,23 @@
 "use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import { Menu, X } from 'lucide-react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { useState } from "react";
+import Link from "next/link";
+import { Menu, Moon, SunMedium, X } from "lucide-react";
+import { motion, AnimatePresence, Variants } from "framer-motion";
+import { useTheme } from "./ThemeProvider";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const navLinks = [
-    { name: 'მთავარი', href: '/' },
-    { name: 'პროექტები', href: '/pages/projects' },
-    { name: 'ჩვენს შესახებ', href: '/pages/about' },
-    { name: 'კონტაქტი', href: '/pages/contact' },
-    { name: 'ბლოგები', href: '/pages/blogs' },
-
+    { name: "მთავარი", href: "/" },
+    { name: "პროექტები", href: "/pages/projects" },
+    { name: "ჩვენს შესახებ", href: "/pages/about" },
+    { name: "კონტაქტი", href: "/pages/contact" },
+    { name: "ბლოგები", href: "/pages/blogs" },
   ];
 
-  // კონტეინერის ანიმაცია (TypeScript-ისთვის დავამატეთ Variants ტიპი)
   const menuVariants: Variants = {
     closed: {
       opacity: 0,
@@ -26,7 +26,7 @@ const Header = () => {
         type: "spring",
         stiffness: 300,
         damping: 30,
-      }
+      },
     },
     opened: {
       opacity: 1,
@@ -35,48 +35,63 @@ const Header = () => {
         type: "spring",
         stiffness: 300,
         damping: 30,
-        staggerChildren: 0.1, // ლინკების სათითაოდ გამოჩენა
-        delayChildren: 0.2
-      }
-    }
+        staggerChildren: 0.1,
+        delayChildren: 0.2,
+      },
+    },
   };
 
-  // ცალკეული ლინკების ანიმაცია
   const linkVariants: Variants = {
     closed: { opacity: 0, x: -20 },
-    opened: { opacity: 1, x: 0 }
+    opened: { opacity: 1, x: 0 },
   };
 
+  const isDark = theme === "dark";
+
   return (
-    <header className="fixed w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
-        <div className="flex justify-between items-center h-20">
-          
-          {/* ლოგო - ყოველთვის ზემოდან */}
+    <header className="fixed z-50 w-full border-b border-gray-100 bg-white/80 backdrop-blur-md transition-colors dark:border-zinc-800 dark:bg-[#050505]/80">
+      <div className="relative z-50 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold tracking-tighter text-black">
-              ARCHI<span className="text-gray-500">STUDIO</span>
+            <Link
+              href="/"
+              className="text-2xl font-bold tracking-tighter text-black transition-colors dark:text-white"
+            >
+              ARCHI<span className="text-gray-500 dark:text-zinc-500">STUDIO</span>
             </Link>
           </div>
 
-          {/* Desktop მენიუ */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden items-center space-x-8 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-700 hover:text-black transition-colors uppercase tracking-widest"
+                className="text-sm font-medium uppercase tracking-widest text-gray-700 transition-colors hover:text-black dark:text-zinc-300 dark:hover:text-white"
               >
                 {link.name}
               </Link>
             ))}
+
+            <button
+              onClick={toggleTheme}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-gray-200 text-black transition hover:scale-[1.03] dark:border-zinc-700 dark:text-white"
+              aria-label={isDark ? "Switch to day mode" : "Switch to night mode"}
+            >
+              {isDark ? <SunMedium size={18} /> : <Moon size={18} />}
+            </button>
           </nav>
 
-          {/* მობილურის ღილაკი - ყოველთვის ზემოდან */}
-          <div className="md:hidden flex items-center">
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="rounded-full border border-gray-200 p-2 text-black transition active:scale-90 dark:border-zinc-700 dark:text-white"
+              aria-label={isDark ? "Switch to day mode" : "Switch to night mode"}
+            >
+              {isDark ? <SunMedium size={18} /> : <Moon size={18} />}
+            </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-black focus:outline-none p-2 transition-transform active:scale-90"
+              className="p-2 text-black transition-transform active:scale-90 dark:text-white"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X size={28} /> : <Menu size={28} />}
@@ -85,7 +100,6 @@ const Header = () => {
         </div>
       </div>
 
-      {/* ანიმირებული მობილური მენიუ */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -93,7 +107,7 @@ const Header = () => {
             animate="opened"
             exit="closed"
             variants={menuVariants}
-            className="fixed inset-0 bg-white z-40 md:hidden flex flex-col justify-center items-center h-screen"
+            className="fixed inset-0 z-40 flex h-screen flex-col items-center justify-center bg-white transition-colors dark:bg-[#050505] md:hidden"
           >
             <nav className="space-y-8 text-center">
               {navLinks.map((link) => (
@@ -101,18 +115,17 @@ const Header = () => {
                   <Link
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-2xl font-semibold text-gray-800 hover:text-black transition-colors uppercase tracking-widest block"
+                    className="block text-2xl font-semibold uppercase tracking-widest text-gray-800 transition-colors hover:text-black dark:text-zinc-200 dark:hover:text-white"
                   >
                     {link.name}
                   </Link>
                 </motion.div>
               ))}
             </nav>
-            
-            {/* დამატებითი ინფორმაცია მენიუს ბოლოში (სურვილისამებრ) */}
-            <motion.div 
+
+            <motion.div
               variants={linkVariants}
-              className="absolute bottom-10 text-gray-400 text-xs uppercase tracking-widest"
+              className="absolute bottom-10 text-xs uppercase tracking-widest text-gray-400 dark:text-zinc-600"
             >
               © 2026 ArchiStudio / Tbilisi
             </motion.div>

@@ -30,7 +30,7 @@ const posts = [
 
 const Blog = () => {
   return (
-    <section className=" pt-32 bg-white text-black">
+    <section className=" pt-32 bg-white dark:bg-[#0f0f0f] text-black dark:text-zinc-100 transition-colors">
       {/* აი შენი მოთხოვნილი ზომა: max-w-7xl */}
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
@@ -40,7 +40,7 @@ const Blog = () => {
             <motion.span 
               initial={{ opacity: 0, y: 10 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-[10px] uppercase tracking-[0.8em] text-zinc-400 block mb-6 font-bold"
+              className="text-[10px] uppercase tracking-[0.8em] text-zinc-400 dark:text-zinc-500 block mb-6 font-bold"
             >
               Journal / Articles
             </motion.span>
@@ -50,9 +50,9 @@ const Blog = () => {
             </h2>
           </div>
           
-          <Link href="/pages/blogs" className="group flex items-center gap-4 border-b border-black pb-2 mb-2 transition-all">
+          <Link href="/pages/blogs" className="group flex items-center gap-4 border-b border-black dark:border-zinc-200 pb-2 mb-2 transition-all">
             <span className="text-[10px] uppercase tracking-widest font-bold">ყველა პოსტი</span>
-            <div className="w-2 h-2 bg-black rounded-full group-hover:scale-150 transition-transform" />
+            <div className="w-2 h-2 bg-black dark:bg-zinc-100 rounded-full group-hover:scale-150 transition-transform" />
           </Link>
         </div>
 
@@ -67,22 +67,22 @@ const Blog = () => {
               transition={{ delay: index * 0.1, duration: 0.8 }}
               className="group cursor-pointer"
             >
-              <div className="relative aspect-[16/10] overflow-hidden mb-8 bg-zinc-100 rounded-sm">
+              <div className="relative aspect-[16/10] overflow-hidden mb-8 bg-zinc-100 dark:bg-zinc-900 rounded-sm">
                 <Image
                   src={post.img}
                   alt={post.title}
                   fill
                   className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                 />
-                <div className="absolute top-4 left-4 bg-white px-3 py-1">
+                <div className="absolute top-4 left-4 bg-white dark:bg-zinc-900 px-3 py-1">
                   <span className="text-[9px] uppercase tracking-widest font-black italic">{post.category}</span>
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <span className="text-[10px] text-zinc-400 font-mono">{post.date}</span>
-                  <div className="h-px flex-1 bg-zinc-100" />
+                  <span className="text-[10px] text-zinc-400 dark:text-zinc-500 font-mono">{post.date}</span>
+                  <div className="h-px flex-1 bg-zinc-100 dark:bg-zinc-800" />
                 </div>
                 
                 <h3 className="text-2xl md:text-3xl font-light leading-tight tracking-tight transition-all duration-500">
@@ -91,7 +91,7 @@ const Blog = () => {
                 
                 <div className="pt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                   <span className="text-[9px] uppercase tracking-widest font-black italic">წაკითხვა</span>
-                  <div className="h-px w-6 bg-black" />
+                  <div className="h-px w-6 bg-black dark:bg-zinc-100" />
                 </div>
               </div>
             </motion.article>
@@ -99,7 +99,7 @@ const Blog = () => {
         </div>
 
         {/* Bottom Decorative Line */}
-        <div className="mt-32 h-px w-full bg-zinc-100" />
+        <div className="mt-32 h-px w-full bg-zinc-100 dark:bg-zinc-800" />
       </div>
     </section>
   );

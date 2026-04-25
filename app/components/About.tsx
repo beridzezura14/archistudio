@@ -38,7 +38,7 @@ const stats = [
 
 const About = () => {
   return (
-    <section className="py-24 bg-[#fcfcfc] overflow-hidden">
+    <section className="py-24 bg-[#fcfcfc] overflow-hidden transition-colors dark:bg-[#111111]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ზედა ნაწილი - სათაური და ტექსტი */}
@@ -49,14 +49,14 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            <span className="text-xs uppercase tracking-[0.5em] text-gray-400 font-bold mb-4 block">
+            <span className="text-xs uppercase tracking-[0.5em] text-gray-400 dark:text-zinc-500 font-bold mb-4 block">
               ჩვენს შესახებ
             </span>
-            <h2 className="text-4xl md:text-6xl font-light text-gray-900 leading-tight mb-8">
+            <h2 className="text-4xl md:text-6xl font-light text-gray-900 dark:text-zinc-100 leading-tight mb-8">
               ჩვენ ვქმნით <br />
               <span className="font-bold italic">მუდმივ</span> ღირებულებებს
             </h2>
-            <p className="text-gray-600 leading-relaxed max-w-lg">
+            <p className="text-gray-600 dark:text-zinc-400 leading-relaxed max-w-lg">
               ჩვენი სტუდია ორიენტირებულია ინოვაციურ არქიტექტურულ გადაწყვეტილებებზე, 
               სადაც ფუნქციონალიზმი და ესთეტიკა ერთმანეთს ერწყმის. თითოეული პროექტი 
               ჩვენთვის ახალი გამოწვევაა, შევქმნათ გარემო, რომელიც ადამიანის 
@@ -87,7 +87,7 @@ const About = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.5 }}
-              className="absolute -bottom-10 -left-10 w-1/2 aspect-square hidden md:block border-[12px] border-white shadow-2xl z-10"
+              className="absolute -bottom-10 -left-10 w-1/2 aspect-square hidden md:block border-[12px] border-white dark:border-[#111111] shadow-2xl z-10"
             >
               <Image
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2070"
@@ -100,7 +100,7 @@ const About = () => {
         </div>
 
         {/* სტატისტიკის სექცია ათვლის ანიმაციით */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-100 pt-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-gray-100 dark:border-zinc-800 pt-16">
           {stats.map((stat, i) => (
             <motion.div
               key={i}
@@ -110,10 +110,10 @@ const About = () => {
               transition={{ delay: i * 0.1 }}
               className="text-center md:text-left"
             >
-              <h3 className="text-3xl md:text-5xl font-bold text-gray-900 mb-2 flex justify-center md:justify-start tracking-tighter">
+              <h3 className="text-3xl md:text-5xl font-bold text-gray-900 dark:text-zinc-100 mb-2 flex justify-center md:justify-start tracking-tighter">
                 <Counter value={stat.value} suffix={stat.suffix} />
               </h3>
-              <p className="text-gray-400 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">
+              <p className="text-gray-400 dark:text-zinc-500 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold">
                 {stat.label}
               </p>
             </motion.div>
@@ -130,11 +130,11 @@ const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="p-10 bg-white shadow-sm border border-gray-50 hover:shadow-2xl transition-all duration-500 rounded-sm"
+              className="p-10 bg-white dark:bg-[#171717] shadow-sm border border-gray-50 dark:border-zinc-800 hover:shadow-2xl transition-all duration-500 rounded-sm"
             >
-              <div className="w-12 h-[2px] bg-black mb-8" />
-              <h4 className="text-xl font-bold mb-4 uppercase tracking-tighter text-gray-900">{item}</h4>
-              <p className="text-sm text-gray-500 leading-relaxed">
+              <div className="w-12 h-[2px] bg-black dark:bg-zinc-100 mb-8" />
+              <h4 className="text-xl font-bold mb-4 uppercase tracking-tighter text-gray-900 dark:text-zinc-100">{item}</h4>
+              <p className="text-sm text-gray-500 dark:text-zinc-400 leading-relaxed">
                 ჩვენი მიდგომა ეფუძნება თანამედროვე ტექნოლოგიების და ტრადიციული 
                 ხარისხის სინთეზს, რაც პროექტის წარმატების გარანტიაა.
               </p>
